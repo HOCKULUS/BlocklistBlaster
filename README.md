@@ -1,5 +1,8 @@
-# BlocklistBlaster
-BlocklistBlaster is a web tool that allows you to combine multiple blocklists into one, removing duplicate entries and providing a single, consolidated list. With BlocklistBlaster, you can easily create and maintain your own custom pihole blocklist to enhance your pihole performance - Made for PiHole
+# BlocklistBlaster - Made for PiHole
+BlocklistBlaster is a web tool that allows you to combine multiple blocklists into one, removing duplicate entries and providing a single, consolidated list. With BlocklistBlaster, you can easily create and maintain your own custom pihole blocklist to enhance your pihole performance.
+
+### What this tool realy does
+Redundant entries in multiple blocklists can slow down the performance of a PiHole, especially on smaller systems. This tool aims to help alleviate that burden by allowing users to create a consolidated list of unique entries from multiple blocklists. By removing duplicates, the resulting list is smaller and faster to process, which can help smaller PiHole systems run more efficiently.
 
 ### Requirements
 - Webserver running php 8.0 or higher
