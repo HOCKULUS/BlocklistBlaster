@@ -8,3 +8,6 @@ BlocklistBlaster is a web tool that allows you to combine multiple blocklists in
 4. Once you save the blocklists, you can view the completed list by clicking on the "view" button.
 5. The link to the list will remain the same.
 6. If you need to make any changes in the future, you can do so by going to /create.php?id=XXXXX.
+
+### Please keep in mind:
+This PHP script is not secure enough to run on public instances due to security vulnerabilities. It is important to ensure that the script has proper input validation and error handling to prevent malicious attacks such as SQL injection or cross-site scripting (XSS). Additionally, it is recommended to use the latest version of PHP and keep the script updated with security patches. Failure to do so could leave your application open to potential security risks and compromise sensitive data.
