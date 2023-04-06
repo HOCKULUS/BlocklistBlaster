@@ -1,7 +1,8 @@
 <?php
 // Load configuration file
 require_once 'config.php';
-
+$count = 0;
+$count2 = 0;
 // Connect to database
 $conn = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
 
@@ -14,6 +15,7 @@ if (!$conn) {
 $ID = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 // Check if 'id' parameter is set and not empty
 if(isset($ID) && $ID != ""){
+    $timestamp = date('D, d M Y, H:i T');
     // 'id' parameter is passed, get contents of URLs
     $id = $_GET['id'];
     $query = "SELECT urls FROM `".$config['tablename']."` WHERE resolved_url='".$id."'";
@@ -35,18 +37,28 @@ if(isset($ID) && $ID != ""){
                     $blocklist_lines = explode("\n", $blocklist);
                     foreach ($blocklist_lines as $line) {
                         $line = trim($line);
+			$count2 ++;
                         if (!empty($line) && !isset($unique_lines[$line])) {
                             // Add line to content if it's not a duplicate
                             $content .= $line . "\n";
                             $unique_lines[$line] = true;
                         }
+			else{
+				$count ++;
+			}
                     }
                 }
             }
         }
         // Output content as plain text
         header('Content-Type: text/plain');
-        echo $content;
+        echo "# ".$count." out of ".$count2." entries were duplicates and have been removed.
+# Based on: https://github.com/HOCKULUS/BlocklistBlaster
+# Title: BlocklistBlaster
+# Last modified: ".$timestamp."
+# Creator: HOCKULUS
+#------------------
+".$content;
     }
     else {
         // Entry not found, output error message
